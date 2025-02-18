@@ -13,11 +13,8 @@ export default function Contact() {
         )})`,
       }}
     >
-      <ParallaxComponent
-        backgroundImage="/contact.webp"
-        heading="Contact Us"
-      />
-      <img src="/divider.png" className="mt-16 mx-auto block" alt="" />
+      <ParallaxComponent backgroundImage="/contact.webp" heading="Contact Us" />
+      <img src="/divider.png" className="w-1/2 sm:w-[400px] mt-16 mx-auto block" alt="" />
       <div className="max-w-7xl mx-auto px-4 py-8 sm:py-16">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#B8860B] mb-4 flex items-center justify-center gap-2">
@@ -27,38 +24,38 @@ export default function Contact() {
           </h2>
         </div>
 
-        <div className="relative w-[70%] mx-auto">
+        <div className="relative w-[80%] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8">
             {[
               {
                 title: "Yashwanth S",
                 subtitle: "Chair",
-                content: "secretary.sdc@iiits.in"//"+91 6369096042",
+                content: "secretary.sdc@iiits.in", //"+91 6369096042",
               },
               {
                 title: "Charvi Palem",
                 subtitle: "Co-Chair",
-                content: "charvi.p22@iiits.in"//"+91 7671075067",
+                content: "charvi.p22@iiits.in", //"+91 7671075067",
               },
               {
                 title: "Suyash Tiwari",
                 subtitle: "Co-Chair",
-                content: "suyash.t22@iiits.in"//"+91 9755000981",
+                content: "suyash.t22@iiits.in", //"+91 9755000981",
               },
               {
                 title: "Abhinav Mars",
                 subtitle: "SLC President",
-                content: "president.slc@iiits.in"//"+91 7569833006",
+                content: "president.slc@iiits.in", //"+91 7569833006",
               },
               {
                 title: "Kannan M",
                 subtitle: "SDC President",
-                content: "president.sdc@iiits.in" //"+91 9843323497",
+                content: "president.sdc@iiits.in", //"+91 9843323497",
               },
               {
                 title: "Shreeraj M",
                 subtitle: "Sponsorship Lead",
-                content: "abhisarga.sponsorship@iiits.in"//"+91 8143272388",
+                content: "abhisarga.sponsorship@iiits.in", //"+91 8143272388",
               },
             ].map((item, index) => (
               <motion.div
@@ -80,16 +77,15 @@ export default function Contact() {
                         {item.subtitle}
                       </p>
                     </div>
-                    <p className="text-gray-300">
-                      {item.content}
-                    </p>
+                    <p className="text-gray-300">{item.content}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-8 h-[500px]">
+          <div className="mt-8 h-[200px] sm:h-[500px]">
             <iframe
+              className="rounded-xl"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31028.893224027328!2d80.0227328!3d13.5593984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d773f1e0f8721%3A0xadb0842ffc2719e4!2sIndian%20Institute%20of%20Information%20Technology%2C%20Sri%20City%2C%20Chittoor!5e0!3m2!1sen!2sin!4v1737188121631!5m2!1sen!2sin"
               width="100%"
               height="100%"

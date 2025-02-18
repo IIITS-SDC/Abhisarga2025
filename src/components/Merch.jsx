@@ -50,7 +50,7 @@ export default function Merch() {
       }}
     >
       <ParallaxComponent backgroundImage="/Merch.jpeg" heading="Merchandise" />
-      <img src="/divider.png" className="mt-16 mx-auto block" alt="" />
+      <img src="/divider.png" className="w-1/2 sm:w-[400px] mt-16 mx-auto block" alt="" />
       <div className="max-w-7xl mx-auto px-4 py-8 sm:py-16">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#B8860B] mb-4 flex items-center justify-center gap-2">

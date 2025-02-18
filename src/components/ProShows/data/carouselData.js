@@ -1,29 +1,24 @@
 export const carouselData = [
   {
     id: 1,
-    image: '/assets/SponsorsAssets/ProShow1.webp', // Relative path from public
-    author: 'ABHISARGA',
-    date: '2024',
-    title: 'DJ RHEA',
-    topic: 'DJ NIGHT',
-    description: 'Experience the fusion of culture and technology at our annual fest. Join us for an unforgettable celebration of creativity and innovation.',
+    image: ["/assets/proshows/proshow3.webp"], // Relative path from public
+    author: "ABHISARGA",
+    date: "2025",
+    title: "DJ Gandhi Vijay",
+    topic: "DJ NIGHT",
+    link: "https://www.instagram.com/stories/highlights/18049394729292508/",
+    description:
+    "Get ready to groove with DJ Gandhi Vijay, a renowned DJ known for his electrifying performances. Having played at numerous high-profile promotional shows, including the famous Pushpa 2 event, he is set to bring an unforgettable DJ night to our annual fest!",
   },
   {
     id: 2,
-    image: '/assets/SponsorsAssets/ProShow2.webp',
-    author: 'ABHISARGA',
-    date: '2024',
-    title: 'Aarohi Band',
-    topic: 'MUSICAL NIGHT',
-    description: 'Groove to the rhythm of the Aarohi Band, a musical extravaganza that will leave you mesmerized.',
-  },
-  {
-    id: 3,
-    image: '/assets/SponsorsAssets/ProShow3.webp',
-    author: 'ABHISARGA',
-    date: '2024',
-    title: 'Chenba Melam',
-    topic: 'Musical Night',
-    description: 'Experience the magic of Chaenba Melam, a creative space where art and technology blend together.',
+    image: ["/assets/proshows/proshow1.webp", "/assets/proshows/proshow2.webp"],
+    author: "ABHISARGA",
+    date: "2025",
+    title: "Mysore Xpress",
+    topic: "MUSICAL NIGHT",
+    link: "https://www.instagram.com/mysore_xpress?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw==",
+    description:
+      "Having performed at prestigious institutions like IIT Madras and NIT Surathkal, they are set to deliver an electrifying night filled with incredible music and unforgettable vibes!",
   },
 ];

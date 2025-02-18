@@ -34,11 +34,11 @@ const Navbar = () => {
     { name: "Contact", path: "/contact", icon: FaEnvelope },
     // { name: "Accommodation", path: "/accommodation", icon: FaBed },
     { name: "Merch", path: "/merch", icon: FaTshirt },
-    {
-      name: "Call For Sponsors",
-      path: "/call-for-sponsors",
-      icon: FaHandshake,
-    },
+    // {
+    //   name: "Call For Sponsors",
+    //   path: "/call-for-sponsors",
+    //   icon: FaHandshake,
+    // },
     { name: "Sponsors", path: "/sponsors", icon: FaAward },
   ];
 
@@ -60,7 +60,11 @@ const Navbar = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <img src="/assets/new_logo.png" alt="Logo" className="w-25 h-12 mr-2" />
+            <img
+              src="/assets/new_logo.png"
+              alt="Logo"
+              className="w-25 h-12 mr-2"
+            />
           </motion.div>
         </Link>
 

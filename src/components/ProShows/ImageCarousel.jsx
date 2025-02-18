@@ -1,87 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { carouselData } from './data/carouselData';
-import Navigation from './Navigation';
-import ProgressBar from './ProgressBar';
-import Timeline from './Timeline';
-import CarouselSlide from './CarouselSlide';
-import Thumbnails from './Thumbnails';
-import NavigationArrows from './NavigationArrows';
+import React, { useState, useEffect } from "react";
+import { carouselData } from "./data/carouselData";
+import NavigationArrows from "./NavigationArrows";
+import CarouselSlide from "./CarouselSlide";
 
 export default function ImageCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-
+  const [currentIndex, setCurrentIndex] = useState(0); // Single state for both index and subindex
+  console.log(currentIndex);
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          setCurrentIndex((current) => (current + 1) % carouselData.length);
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 70);
+      setCurrentIndex((prevIndex) => {
+        const mainIndex = Math.floor(prevIndex / 10); // Extract main index
+        const subIndex = prevIndex % 10; // Extract subindex
 
-    return () => clearInterval(interval);
-  }, []);
+        const images = carouselData[mainIndex]?.image || [];
+        const isLastImage = subIndex + 1 >= images.length;
+
+        if (isLastImage) {
+          // Move to the next main index and reset subindex
+          return ((mainIndex + 1) % carouselData.length) * 10;
+        }
+
+        return prevIndex + 1; // Increment subindex while keeping main index
+      });
+    }, 5000);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [carouselData]); // Only depend on `carouselData` to avoid unnecessary resets
+
+  // Extract main index and subindex when needed
+  const mainIndex = Math.floor(currentIndex / 10);
+  const subIndex = currentIndex % 10;
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % carouselData.length);
-    setProgress(0);
+    setCurrentIndex(((mainIndex + 1) % carouselData.length) * 10); // Move to next mainIndex
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + carouselData.length) % carouselData.length);
-    setProgress(0);
+    setCurrentIndex(
+      ((mainIndex - 1 + carouselData.length) % carouselData.length) * 10
+    ); // Move to previous mainIndex
   };
 
   const handleThumbnailClick = (index) => {
-    setCurrentIndex(index);
-    setProgress(0);
+    setCurrentIndex(index * 10); // Set to the main index with subindex reset
   };
 
   return (
-    <div className=" h-screen relative overflow-hidden font-mysticalFont">
-      {/* Progress bar - full width on all screens */}
-      {/* <ProgressBar progress={progress} /> */}
-      {/* Navigation - responsive padding */}
-
-      {/* Timeline - adjusts position based on screen size */}
-      {/* <div className="hidden sm:block">
-        <Timeline 
-          total={carouselData.length}
-          currentIndex={currentIndex}
-          onSelect={handleThumbnailClick}
-          className="absolute top-1/4 right-4 sm:right-6 lg:right-8 z-30"
-        />
-      </div> */}
-
-      {/* Main carousel content */}
+    <div className="h-screen relative overflow-hidden font-mysticalFont">
       <div className="relative h-full">
         {carouselData.map((item, index) => (
           <CarouselSlide
             key={item.id}
             item={item}
-            isActive={index === currentIndex}
+            index={subIndex}
+            isActive={index === mainIndex} // Compare mainIndex
           />
         ))}
       </div>
 
-      {/* Thumbnails - hidden on mobile, shown on larger screens */}
-      {/* <div className="hidden md:block">
-        <Thumbnails
-          items={carouselData}
-          currentIndex={currentIndex}
-          onSelect={handleThumbnailClick}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
-        />
-      </div> */}
-
-      {/* Navigation arrows - adjusted padding for different screen sizes */}
+      {/* Navigation arrows */}
       <NavigationArrows
         onPrev={handlePrev}
         onNext={handleNext}
-        className="absolute inset-y-0 w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 z-2"
+        className="absolute inset-y-0 w-full flex items-center justify-between px-4 sm:px-6 lg:px-4 z-2"
       />
 
       {/* Mobile-only indicators */}
@@ -91,7 +72,7 @@ export default function ImageCarousel() {
             key={index}
             onClick={() => handleThumbnailClick(index)}
             className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${
-              currentIndex === index ? 'bg-[#F7E290] w-4' : 'bg-white/50'
+              mainIndex === index ? "bg-[#F7E290] w-4" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

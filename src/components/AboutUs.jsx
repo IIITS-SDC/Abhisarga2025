@@ -108,12 +108,150 @@ export default function AboutUs() {
       image: "./assets/AboutUs/VenkataSaiReddy.webp",
       bgColor: "black",
     },
+    // {
+    // name: "Sai Hyndavi Barla",
+    //description: ["Invitation"],
+    // image: "./assets/AboutUs/SaiHyndaviBarla.webp",
+    //bgColor: "black",
+    // },
     {
       name: "Shanmathe S A",
       description: ["Proshows"],
       image: "./assets/AboutUs/Shanmathe.webp",
       bgColor: "black",
     },
+    // {
+    //   title: "Council Members",
+    // },
+    // {
+    //   name: "Kannan M",
+    //   description: ["SDC President"],
+    //   image: "./assets/AboutUs/KannanM.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Yashwanth S",
+    //   description: ["SDC Secretary"],
+    //   image: "./assets/AboutUs/YashwanthS.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Monish B",
+    //   description: ["SDC Treasurer"],
+    //   image: "./assets/AboutUs/Monish.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Manoj Varma Datla",
+    //   description: ["Joint Secretary Non Technical SDC"],
+    //   image: "./assets/AboutUs/ManojVarmaDatla.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Kaushal Edara",
+    //   description: ["Joint Secretary Technical SDC"],
+    //   image: "./assets/AboutUs/KaushalEdara.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "KL Vitesh Reddy",
+    //   description: ["SDC UG 2"],
+    //   image: "./assets/AboutUs/KLViteshReddy.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Bhavishya C",
+    //   description: ["SDC UG 2"],
+    //   image: "./assets/AboutUs/BhavishyaC.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "B Medhansh Rao",
+    //   description: ["SDC UG 1"],
+    //   image: "./assets/AboutUs/BeerelliMedhanshRao.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Nikitha Budaraju",
+    //   description: ["SDC UG 1"],
+    //   image: "./assets/AboutUs/NikithaBudaraju.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   title: "newLine"
+    // },
+    // {
+    //   name: "Abhinav Mars",
+    //   description: ["SLC President"],
+    //   image: "./assets/AboutUs/AbhinavMars.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Poojyanth",
+    //   description: ["SLC Vice President"],
+    //   image: "./assets/AboutUs/Poojyanth.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Santosh Kiran",
+    //   description: ["SLC Secretary Hostel"],
+    //   image: "./assets/AboutUs/Santhosh.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Teja Sri",
+    //   description: ["SLC Secretary Hostel"],
+    //   image: "./assets/AboutUs/TejaSri.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Vighnesh Barage",
+    //   description: ["SLC Mess Secretary"],
+    //   image: "./assets/AboutUs/VigneshBarage.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Charvi Palem",
+    //   description: ["SLC Mess Secretary"],
+    //   image: "./assets/AboutUs/CharviPalem.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Vedant Rajendra",
+    //   description: ["SLC Sports Secretary"],
+    //   image: "./assets/AboutUs/VedantRajendra.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Swathika Reddy",
+    //   description: ["SLC Sports Secretary"],
+    //   image: "./assets/AboutUs/SwathikaReddy.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Prathyush MR",
+    //   description: ["SLC UG 2"],
+    //   image: "./assets/AboutUs/PrathyushMR.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Kavyanjali G",
+    //   description: ["SLC UG 2"],
+    //   image: "./assets/AboutUs/KavyanjaliGanteda.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Mukunth P",
+    //   description: ["SLC UG 1"],
+    //   image: "./assets/AboutUs/MukunthParthasarathy.webp",
+    //   bgColor: "black",
+    // },
+    // {
+    //   name: "Harshini Reddy",
+    //   description: ["SLC UG 1"],
+    //   image: "./assets/AboutUs/HarshiniReddy.webp",
+    //   bgColor: "black",
+    // },
     {
       title: "The Magicians Behind the Website",
     },
@@ -170,6 +308,9 @@ export default function AboutUs() {
       bgColor: "black",
     },
     {
+      title: "newLine",
+    },
+    {
       name: "Venkata Sai Pranav",
       description: ["Tech Team", "Member"],
       position: "Member",
@@ -212,7 +353,6 @@ export default function AboutUs() {
     }
     return acc;
   }, []);
-   
 
   return (
     <div
@@ -241,33 +381,33 @@ export default function AboutUs() {
             )}
             <div className="flex flex-wrap items-center  justify-center gap-8">
               {group.members.map((member, idx) => (
-                  <div
-                    key={idx}
-                    className="frame flex flex-col items-center justify-center cursor-pointer"
-                    onClick={() => {
-                      if (member.linkedin) {
-                        window.open(member.linkedin, "_blank");
-                      } else {
-                        console.log(`${member.name} clicked`);
-                      }
-                    }}
-                  >
-                    <div className="image-container">
-                      <img
-                        className="featured-image"
-                        src={member.image}
-                        alt={member.name}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="featured-name">{member.name}</h3>
-                      {member.description.map((desc, i) => (
-                        <p key={i} className="featured-description">
-                          {desc}
-                        </p>
-                      ))}
-                    </div>
+                <div
+                  key={idx}
+                  className="frame flex flex-col items-center justify-center cursor-pointer"
+                  onClick={() => {
+                    if (member.linkedin) {
+                      window.open(member.linkedin, "_blank");
+                    } else {
+                      console.log(`${member.name} clicked`);
+                    }
+                  }}
+                >
+                  <div className="image-container">
+                    <img
+                      className="featured-image"
+                      src={member.image}
+                      alt={member.name}
+                    />
                   </div>
+                  <div>
+                    <h3 className="featured-name">{member.name}</h3>
+                    {member.description.map((desc, i) => (
+                      <p key={i} className="featured-description">
+                        {desc}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

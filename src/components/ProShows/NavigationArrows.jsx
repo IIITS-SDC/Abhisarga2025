@@ -4,9 +4,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 function NavigationArrows({ onPrev, onNext }) {
   return (
     <div className="
-      absolute bottom-6 left-6
+      absolute bottom-8
       flex items-center gap-3
-      z-10 left-[10%]
+      z-10 left-[5%]
     ">
       <button
         onClick={onPrev}

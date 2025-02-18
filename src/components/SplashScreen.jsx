@@ -12,7 +12,7 @@ function SplashScreen() {
     <div
       className="relative flex items-center justify-center h-screen bg-black bg-cover bg-center"
       style={{
-        backgroundImage: `url('/assets/image.jpeg')`,
+        backgroundImage: `url('/assets/homeBg.webp')`,
       }}
     >
       {/* Backdrop overlay */}
