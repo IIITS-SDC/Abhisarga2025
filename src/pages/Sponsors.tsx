@@ -90,6 +90,15 @@ export default function Sponsors() {
         },
       ],
     },
+    {
+      category: "Beverage Partner",
+      items: [
+        {
+          name: "Night Hawk",
+          logo: "/assets/SponsorsAssets/NightHawk.webp",
+        },
+      ],
+    },
   ];
 
   return (
