@@ -2,27 +2,31 @@
 
 import { useState, useEffect } from "react"
 import ParallaxComponent from "./ParllaxComponent"
-import { Sparkles } from "lucide-react"
+import { Sparkles, X, ZoomIn, ZoomOut } from "lucide-react"
 
 const merchandiseItems = [
   {
-    image: "/TShirt.webp",
+    image: "/assets/Merchendise/frontview.webp",
     title: "Front View",
   },
   {
-    image: "/TShirt.webp",
+    image: "/assets/Merchendise/sideview.webp",
     title: "Side View",
   },
   {
-    image: "/TShirt.webp",
+    image: "/assets/Merchendise/backview.webp",
     title: "Back View",
   },
 ]
 
 export default function Merch() {
   const [selectedItem, setSelectedItem] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [zoom, setZoom] = useState(1)
+  const [intervalId, setIntervalId] = useState(null)
 
-  const availableSizes = [ "S", "M", "L", "XL"]
+  const availableSizes = ["S", "M", "L", "XL"]
+
   const getCardStyle = (index) => {
     const baseStyle = "absolute w-full h-full transition-all duration-500 ease-in-out rounded-lg cursor-pointer"
     if (index === selectedItem) {
@@ -35,98 +39,74 @@ export default function Merch() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedItem((prev) => (prev + 1) % merchandiseItems.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [])
+    if (!isModalOpen) {
+      const id = setInterval(() => {
+        setSelectedItem((prev) => (prev + 1) % merchandiseItems.length)
+      }, 5000)
+      setIntervalId(id)
+      return () => clearInterval(id)
+    } else {
+      clearInterval(intervalId)
+    }
+  }, [isModalOpen])
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center bg-fixed text-white relative"
-      style={{
+    <div className="min-h-screen bg-cover bg-center bg-fixed text-white relative" style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.98)), url(${encodeURI("/MerchBg.jpeg")})`,
-      }}
-    >
+      }}>
       <ParallaxComponent backgroundImage="/Merch.jpeg" heading="Merchandise" />
       <img src="/divider.png" className="w-1/2 sm:w-[400px] mt-16 mx-auto block" alt="" />
+      
       <div className="max-w-7xl mx-auto px-4 py-8 sm:py-16">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#B8860B] mb-4 flex items-center justify-center gap-2">
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
-            Collection
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" /> Collection <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
           </h2>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4">
             Adorn yourself with Abhisarga's merchandise and show off your mystical prowess.
           </p>
         </div>
 
-        <div className="relative w-[70%] max-w-[300px] sm:max-w-[400px] h-[300px] sm:h-[400px] mx-auto">
+        {/* Merchandise Display */}
+        <div className="relative w-[600px] max-w-[250px] md:max-w-[600px] sm:max-w-[400px] h-[350px] sm:h-[600px] mx-auto">
           <div className="relative w-full h-full">
             {merchandiseItems.map((item, index) => (
-              <div key={index} className={getCardStyle(index)} onClick={() => setSelectedItem(index)}>
-                  <div className="relative h-full bg-[#0D1117] rounded-lg overflow-hidden border border-[#B8860B]/20">
-                    <div className="relative w-full h-[200px] sm:h-[300px]">
-                      <img
-                        src={
-                          item.image ||
-                           "/placeholder.svg"}
-                        alt={item.title}
-                        className="w-full h-full object-cover blur-sm "
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-                        <span className="text-white text-lg sm:text-2xl font-bold">Coming Soon</span>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#0D1117] to-transparent p-2 sm:p-4">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#B8860B] mb-1 sm:mb-2 text-center">
-                        {item.title}
-                      </h3>
-                    </div>
+              <div key={index} className={getCardStyle(index)} onClick={() => { setSelectedItem(index); setIsModalOpen(true) }}>
+                <div className="relative h-full bg-[#0D1117] rounded-lg overflow-hidden border border-[#B8860B]/20">
+                  <div className="relative w-full h-[300px] sm:h-[500px]">
+                    <img src={item.image || "/placeholder.svg"} alt={item.title} className="w-full h-full object-cover" />
                   </div>
-
+                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#0D1117] to-transparent p-2 sm:p-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#B8860B] mb-1 sm:mb-2 text-center">{item.title}</h3>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-6 sm:mt-8 text-center">
-          <div className="flex justify-center gap-2 mb-4">
-            {merchandiseItems.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                  index === selectedItem ? "bg-[#B8860B]" : "bg-gray-600"
-                }`}
-                onClick={() => setSelectedItem(index)}
-              />
-            ))}
-          </div>
-          <div className="mb-4 sm:mb-6">
-            <h4 className="text-[#B8860B] font-semibold mb-2 sm:mb-3">Available Sizes</h4>
-            <div className="flex flex-wrap justify-center gap-2">
-              {availableSizes.map((size) => (
-                <button
-                  key={size}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 transition-all duration-300 
-                    hover:border-[#B8860B]/50 hover:bg-[#B8860B]/10 text-sm sm:text-base`}
-                >
-                  {size}
+        {/* Modal for Fullscreen Preview */}
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4" onClick={() => setIsModalOpen(false)}>
+            <div className="relative max-w-3xl w-full text-center" onClick={(e) => e.stopPropagation()}>
+              <button className="absolute top-4 right-4 text-white bg-gray-800 p-2 rounded-full" onClick={() => setIsModalOpen(false)}>
+                <X size={24} />
+              </button>
+              <div className="relative overflow-hidden">
+                <img src={merchandiseItems[selectedItem].image} alt={merchandiseItems[selectedItem].title} className="w-full transform transition-transform duration-300" style={{ transform: `scale(${zoom})` }} />
+              </div>
+              <div className="mt-4 flex justify-center gap-4">
+                <button onClick={() => setZoom((prev) => Math.min(prev + 0.2, 3))} className="bg-[#B8860B] text-black p-2 rounded-md flex items-center gap-1">
+                  <ZoomIn size={20} /> Zoom In
                 </button>
-              ))}
+                <button onClick={() => setZoom((prev) => Math.max(prev - 0.2, 1))} className="bg-gray-700 text-white p-2 rounded-md flex items-center gap-1">
+                  <ZoomOut size={20} /> Zoom Out
+                </button>
+              </div>
             </div>
           </div>
-          {/* <div className="inline-block bg-[#0D1117] p-3 sm:p-4 rounded-lg border border-[#B8860B]/20">
-            <span className="text-xl sm:text-2xl font-bold text-[#B8860B] mr-2 sm:mr-4">₹229.99</span>
-            <button className="px-4 sm:px-6 py-2 bg-[#B8860B] text-black font-semibold rounded-md hover:bg-[#9A7209] transition-colors text-sm sm:text-base">
-              Buy Now
-            </button>
-          </div> */}
-        </div>
+        )}
       </div>
     </div>
   )
 }
-
