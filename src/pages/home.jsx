@@ -1,4 +1,4 @@
-// import ImageCarousel from "../components/ProShows/ImageCarousel";
+import ImageCarousel from "../components/ProShows/ImageCarousel";
 import ProshowsCommingsoon from "../components/ProShows/ProshowsComingSoon";
 import HeroComponent from "../components/HeroComponent";
 import SplashScreen from "../components/SplashScreen";
@@ -16,7 +16,8 @@ function Home() {
       {/* Main Content */}
       <AboutPage />
       <div className="flex-grow">
-        <ProshowsCommingsoon />
+        <ImageCarousel/>
+        {/* <ProshowsCommingsoon /> */}
       </div>
       {/* Timeline */}
       {/* <TimeLine /> */}
