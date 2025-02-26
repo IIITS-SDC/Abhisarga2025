@@ -99,6 +99,15 @@ export default function Sponsors() {
         },
       ],
     },
+    {
+      category: "Accommodation Partner",
+      items: [
+        {
+          name: "Bigstay",
+          logo: "/assets/SponsorsAssets/bigstay.webp",
+        },
+      ],
+    },
   ];
 
   return (
