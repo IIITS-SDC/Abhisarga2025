@@ -20,7 +20,7 @@ function Home() {
         {/* <ProshowsCommingsoon /> */}
       </div>
       {/* Timeline */}
-      {/* <TimeLine /> */}
+      <TimeLine />
       {/* FAQ */}
       <FAQ />
       {/* <SponsorCarousel/> */}
