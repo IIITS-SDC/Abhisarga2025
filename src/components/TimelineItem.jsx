@@ -30,11 +30,11 @@ const TimelineItem = ({ item, index }) => {
 
         {/* Content */}
         <div className="relative z-10 text-center">
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-xl sm:text-2xl font-semibold">
             {item.title}
           </h2>
-          <p>{item?.time}</p>
-          <p className="mt-1 text-sm italic">{item?.location}</p>
+          <p className="text-sm sm:text-base">{item?.time}</p>
+          <p className="mt-1 text-xs sm:text-sm italic">{item?.location}</p>
         </div>
 
         {/* Decorative Circle */}

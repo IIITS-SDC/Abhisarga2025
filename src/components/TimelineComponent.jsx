@@ -183,27 +183,6 @@ const Timeline = () => {
         overflow: "hidden",
       }}
     >
-      {/* <CoolMode options={{ particle: "/wizard.svg" }}>
-        <button>
-          <motion.img
-            src="./assets/harrypotter.gif"
-            alt="Fixed Decorative"
-            className="hidden 2xl:block fixed bottom-10 left-10 object-cover opacity-80  z-10"
-            width={400}
-          />
-        </button>
-      </CoolMode>
-      <CoolMode options={{ particle: "/bird.png" }}>
-        <button>
-          <motion.img
-            src="/Magic-hat.gif"
-            alt="Fixed Decorative"
-            className="hidden 2xl:block fixed top-20 right-10 object-cover opacity-80 z-10"
-            width={200}
-          />
-        </button>
-      </CoolMode> */}
-
       <div className="absolute inset-0 pointer-events-none">
         <div className="stars-container">
           {stars.map((star) => (
