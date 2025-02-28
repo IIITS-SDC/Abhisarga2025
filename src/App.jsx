@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader";
 
 // Lazy loading components
+import SplashCursor from './components/SplashCursor'
 const Home = lazy(() => import("./pages/home"));
 const EventsPage = lazy(() => import("./pages/EventsPage"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
@@ -52,6 +53,7 @@ function App() {
             path="/"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <Home />
               </>
             }
@@ -60,6 +62,7 @@ function App() {
             path="/events"
             element={
               <>
+              {useIsLargeScreen() && <SplashCursor />}
                 <EventsPage />
               </>
             }
@@ -67,7 +70,7 @@ function App() {
           <Route
             path="/about"
             element={
-              <>
+              <>  {useIsLargeScreen() && <SplashCursor />}
                 <AboutUs />
               </>
             }
@@ -76,6 +79,7 @@ function App() {
             path="/accommodation"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <AccommodationPage />
               </>
             }
@@ -84,6 +88,7 @@ function App() {
             path="/event/:name"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <Event />
               </>
             }
@@ -92,6 +97,7 @@ function App() {
             path="/merch"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <Merch />
               </>
             }
@@ -100,6 +106,7 @@ function App() {
             path="/contact"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <Contact />
               </>
             }
@@ -108,6 +115,7 @@ function App() {
             path="/call-for-sponsors"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <CallForSponsors />
               </>
             }
@@ -116,6 +124,7 @@ function App() {
             path="/sponsors"
             element={
               <>
+                {useIsLargeScreen() && <SplashCursor />}
                 <Sponsors />
               </>
             }
