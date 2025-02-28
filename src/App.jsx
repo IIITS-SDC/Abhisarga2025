@@ -9,17 +9,23 @@ import Loader from "./components/Loader";
 const Home = lazy(() => import("./pages/home"));
 const EventsPage = lazy(() => import("./pages/EventsPage"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
-const AccommodationPage = lazy(() => import("./components/Accommodation"));
+const AccommodationPage = lazy(() =>
+  import("./components/Accommodation")
+);
 const Event = lazy(() => import("./pages/events"));
 const Merch = lazy(() => import("./components/Merch"));
-const CallForSponsors = lazy(() => import("./components/CallForSponsors/page"));
+const CallForSponsors = lazy(() =>
+  import("./components/CallForSponsors/page")
+);
 const Sponsors = lazy(() => import("./pages/Sponsors"));
 const Contact = lazy(() => import("./pages/Contact"));
 const ComingSoon = lazy(() => import("./pages/comingSoon"));
-const SplashCursor = lazy(() => import("./components/SplashCursor"));
+// const SplashCursor = lazy(() => import("./components/SplashCursor"));
 
 function useIsLargeScreen() {
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 640); // sm = 640px
+  const [isLargeScreen, setIsLargeScreen] = useState(
+    window.innerWidth > 640
+  ); // sm = 640px
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,7 +33,8 @@ function useIsLargeScreen() {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () =>
+      window.removeEventListener("resize", handleResize);
   }, []);
 
   return isLargeScreen;
@@ -45,7 +52,6 @@ function App() {
             path="/"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <Home />
               </>
             }
@@ -54,7 +60,6 @@ function App() {
             path="/events"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <EventsPage />
               </>
             }
@@ -63,8 +68,7 @@ function App() {
             path="/about"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
-                <AboutUs />{" "}
+                <AboutUs />
               </>
             }
           />
@@ -72,7 +76,6 @@ function App() {
             path="/accommodation"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <AccommodationPage />
               </>
             }
@@ -81,7 +84,6 @@ function App() {
             path="/event/:name"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <Event />
               </>
             }
@@ -90,7 +92,6 @@ function App() {
             path="/merch"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <Merch />
               </>
             }
@@ -99,7 +100,6 @@ function App() {
             path="/contact"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <Contact />
               </>
             }
@@ -108,7 +108,6 @@ function App() {
             path="/call-for-sponsors"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <CallForSponsors />
               </>
             }
@@ -117,7 +116,6 @@ function App() {
             path="/sponsors"
             element={
               <>
-                {useIsLargeScreen() && <SplashCursor />}
                 <Sponsors />
               </>
             }

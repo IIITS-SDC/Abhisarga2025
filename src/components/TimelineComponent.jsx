@@ -1,5 +1,10 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, {
+  useEffect,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
+import { motion } from "framer-motion";
 import "./TimelineComponent.css";
 import { CoolMode } from "./ui/CoolMode";
 
@@ -7,7 +12,7 @@ const TimelineItem = lazy(() => import("./TimelineItem")); // Lazy load Timeline
 
 const Timeline = () => {
   const [stars, setStars] = useState([]);
-  const controls = useAnimation();
+  const [day, setDay] = useState(1);
 
   useEffect(() => {
     const generateStars = () => {
@@ -26,37 +31,157 @@ const Timeline = () => {
     generateStars();
   }, []);
 
-  const timelineData = [
-    {
-      title: "The Enchanted Beginning",
-      description: "The magic unfolds...",
-      date: "1200 AD",
-      image: "https://images.unsplash.com/photo-1525253086316-d0c936c814f8",
-    },
-    {
-      title: "Mystic Encounter",
-      description: "A mysterious event...",
-      date: "1400 AD",
-      image: "https://images.unsplash.com/photo-1517511620798-cec17d428bc0",
-    },
-    {
-      title: "Arcane Discovery",
-      description: "The secrets are revealed...",
-      date: "1600 AD",
-      image: "https://plus.unsplash.com/premium_photo-1661315459644-18297c559777?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-      title: "The Final Prophecy",
-      description: "The journey concludes...",
-      date: "1800 AD",
-      image: "https://media.istockphoto.com/id/1901752590/photo/secondary-or-high-school-students-studying-wind-turbines-in-science-class-with-teacher.webp",
-    },
+  const fullTimeLineData = [
+    [
+      {
+        title: "Inauguration",
+        time: "11:00 AM - 11:30 AM",
+        location: "G04",
+      },
+      {
+        title: "Panel Discussion",
+        // time: "11:00 AM - 11:30 AM",
+        location: "G06, G07, G08, G09",
+      },
+      {
+        title: "AgriAI Hackathon",
+        time: "8:45 AM - 5:30 PM",
+        // location: "G04",
+      },
+      {
+        title: "International Healthcare Hackathon",
+        time: "8:45 AM - 5:30 PM",
+        // location: "G04",
+      },
+      {
+        title: "Hack The Threat Hackathon",
+        time: "8:45 AM - 5:30 PM",
+        // location: "G04",
+      },
+      {
+        title: "Agentica Hackathon",
+        time: "8:45 AM - 5:30 PM",
+        // location: "G04",
+      },
+    ],
+    [
+      {
+        title: "End of Agri AI and Hack the threat Hackathons",
+        time: "8:00 AM - 9:00 AM",
+        // location: "G04",
+      },
+      {
+        title: "Piston Cup",
+        time: "8:00 AM - 5:00 PM",
+        // location: "G04",
+      },
+      {
+        title: "Enchanted Frames",
+        time: "9:00 AM - 1:00 PM",
+        location: "B03",
+      },
+      {
+        title: "MUN (Keynote)",
+        time: "9:00 AM - 1:00 PM",
+        location: "G09",
+      },
+      {
+        title: "Smash Karts",
+        time: "9:00 AM - 1:00 PM",
+        location: "108, 109, 110",
+      },
+      {
+        title: "Ascenta",
+        time: "10:00 AM - 4:00 PM",
+        location: "G04, G05",
+      },
+      {
+        title:
+          "Check point 2 for Medical and Agentica Hackathons",
+        time: "12:00 PM - 12:30 PM",
+        // location: "108, 109, 110",
+      },
+      {
+        title: "BGMI",
+        time: "2:00 PM - 5:00 PM",
+        location: "G09",
+      },
+      {
+        title: "Matrix Event",
+        time: "2:00 PM - 5:00 PM",
+        location: "G05",
+      },
+      {
+        title: "Dodge Ball",
+        time: "3:00 PM - 5:00 PM",
+        // location: "G09",
+      },
+    ],
+    [
+      {
+        title: "End of Medical and Agentica Hackathons",
+        time: "8:00 AM - 9:00 AM",
+        // location: "G09",
+      },
+      {
+        title: "Piston Cup",
+        time: "8:00 AM - 5:00 PM",
+        // location: "G09",
+      },
+      {
+        title: "Mini Miltia",
+        time: "9:00 AM - 1:00 PM",
+        location: "104",
+      },
+      {
+        title:
+          "Judging / Pitch from Participants of Agentica and Medical Hackathons",
+        time: "10:00 AM - 11:00 AM",
+        location: "G06, G07, G08",
+      },
+      {
+        title: "Movie Trivia",
+        time: "10:00 AM - 11:30 AM",
+        location: "110, 112",
+      },
+      {
+        title: "RC 24",
+        time: "11:00 AM - 1:00 PM",
+        location: "G05",
+      },
+      {
+        title: "Consolidation of Results",
+        time: "12:00 PM - 1:00 PM",
+        // location: "G09",
+      },
+      {
+        title: "Solo Dance Battle",
+        time: "2:00 PM - 5:00 PM",
+        // location: "G09",
+      },
+      {
+        title: "Bullet Echo",
+        time: "2:00 PM - 4:00 PM",
+        location: "G05",
+      },
+      {
+        title: "Free Fire",
+        time: "2:00 PM - 5:00 PM",
+        location: "104",
+      },
+    ],
   ];
+
+  const timelineData = fullTimeLineData[day - 1];
 
   return (
     <motion.div
       className="relative min-h-screen py-10 px-5 mt-10"
-      style={{ background: "radial-gradient(circle at top, #000000, #000000)", overflow: "hidden" }}
+      style={{
+        background:
+          "radial-gradient(circle at top, #000000, #000000)",
+        overflow: "hidden",
+      }}
     >
       {/* <CoolMode options={{ particle: "/wizard.svg" }}>
         <button>
@@ -98,12 +223,42 @@ const Timeline = () => {
       </div>
 
       <div className="flex flex-row justify-center items-center space-x-4">
-        <img src="/assets/header-flourish.svg" alt="" className="h-3 transform scale-x-[-1] mb-10" />
-        <h1 className="text-4xl font-bold text-center text-[#F7E290] mb-10 font-mysticalFont">Mystical Timeline</h1>
-        <img src="/assets/header-flourish.svg" alt="" className="h-3 mb-10" />
+        <img
+          src="/assets/header-flourish.svg"
+          alt=""
+          className="h-3 transform scale-x-[-1] mb-10"
+        />
+        <h1 className="text-4xl font-bold text-center text-[#F7E290] mb-10 font-mysticalFont">
+          Mystical Timeline
+        </h1>
+        <img
+          src="/assets/header-flourish.svg"
+          alt=""
+          className="h-3 mb-10"
+        />
       </div>
 
       <div className="relative mx-auto max-w-4xl">
+        <div className="m-8 flex gap-4 justify-center">
+          <button
+            onClick={() => setDay(1)}
+            className=" button px-6 py-2 bg-[#F7E290] text-black rounded-full font-semibold hover:bg-[#edd472] transition"
+          >
+            Day 1
+          </button>
+          <button
+            onClick={() => setDay(2)}
+            className=" button px-6 py-2 bg-[#F7E290] text-black rounded-full font-semibold hover:bg-[#edd472] transition"
+          >
+            Day 2
+          </button>
+          <button
+            onClick={() => setDay(3)}
+            className=" button px-6 py-2 bg-[#F7E290] text-black rounded-full font-semibold hover:bg-[#edd472] transition"
+          >
+            Day 3
+          </button>
+        </div>
         <div className="absolute left-1/2 w-1 bg-gradient-to-b from-[#F7E290] to-[#24222d] h-full transform -translate-x-1/2"></div>
         {timelineData.map((item, index) => (
           <Suspense fallback={<div>Loading...</div>} key={index}>
