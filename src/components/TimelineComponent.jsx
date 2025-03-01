@@ -116,6 +116,47 @@ const Timeline = () => {
         time: "3:00 PM - 5:00 PM",
         // location: "G09",
       },
+      {
+        title: "Solo Musical Performance",
+        time: "6:00 PM - 7:00 PM",
+      },
+      {
+        title: "Welcome address by Abhinav Mars SLC President",
+        time: "7:00 PM - 7:05 PM",
+      },
+      {
+        title: "Speech By Smt.Sangeetha Bala",
+        time: "7:05 PM - 7:13 PM",
+      },
+      {
+        title: "Speech By Captain Dr.Uma Nambiar",
+        time: "7:13 PM - 7:21 PM",
+      },
+      {
+        title: "Speech By Shri. M.S BALA",
+        time: "7:21 PM - 7:29 PM",
+      },
+      {
+        title: "Speech By Guest of Honour Mr.Vikram Cotah",
+        time: "7:29 PM - 7:37 PM",
+      },
+      {
+        title: "Speech By Chief Dewan to Prince Of Arcot",
+        time: "7:37 PM - 7:45 PM",
+      },
+      {
+        title: "Falicitation of Guests by Shri. M.S.Bala and Col. T. Umashankar",
+        time: "7:45 PM - 7:53 PM",
+      },
+      {
+        title: "Vote of Thanks by Teja Sri (SLC Secretary)",
+        time: "7:53 PM - 8:00 PM",
+      },
+      {
+        title: "Mysore Express Band",
+        time: "8: 15 PM - 9:30 PM",
+      },
+
     ],
     [
       {
