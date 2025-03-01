@@ -12,7 +12,7 @@ const TimelineItem = lazy(() => import("./TimelineItem")); // Lazy load Timeline
 
 const Timeline = () => {
   const [stars, setStars] = useState([]);
-  const [day, setDay] = useState(1);
+  const [day, setDay] = useState(2);
 
   useEffect(() => {
     const generateStars = () => {
