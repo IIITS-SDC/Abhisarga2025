@@ -210,6 +210,86 @@ const Timeline = () => {
         time: "2:00 PM - 5:00 PM",
         location: "104",
       },
+      {
+        title: "MC Normal Welcome",
+        time: "6:00 PM - 6:05 PM",
+      },
+      {
+        title: "Welcome Shri. MS Bala and Mrs. Sangeetha Bala by Bhavishya ",
+        time: "6:05 PM - 6:0 PM",
+      },
+      {
+        title: "Home Dance Performance by Beatripperz",
+        time: "6:10 PM - 6:15 PM",
+      },
+      {
+        title: "Performance By Dance Group - 2",
+        time: "6:15 PM - 6:30 PM",
+      },
+      {
+        title: "Performance By Dance Group - 3",
+        time: "6:30 PM - 6:45 PM",
+      },
+      {
+        title: "Performance By Dance Group - 4",
+        time: "6:45 PM - 7:00 PM",
+      },
+      {
+        title: "Performance By Dance Group - 5",
+        time: "7:00 PM - 7:15 PM",
+      },
+      {
+        title: "Performance By Dance Group - 6",
+        time: "7:15 PM - 7:30 PM",
+      },
+      {
+        title: "Kaushal, Speaks about Statistics of Hackathons in Abhisarga",
+        time: "7:30 PM - 7:35 PM",
+      },
+      {
+        title: "Prize Distribution Of Healthcare Hackathon",
+        time: "7:35 PM - 7:45 PM",
+      },
+      {
+        title: "Prize Distribution Of Station -S",
+        time: "7:45 PM - 7:55 PM",
+      },
+      {
+        title: "Prize Distribution Of Hackthethreat",
+        time: "7:55 PM - 8:05 PM",
+      },
+      {
+        title: "Prize Distribution Of Agri AI (Our College Members)",
+        time: "8:05 PM - 8:15 PM",
+      },
+      {
+        title: "Prize Distribution Of F/stops",
+        time: "8:15 PM - 8:20 PM",
+      },
+      {
+        title: "Prize Distribution Of Matrix",
+        time: "8:25 PM - 8:25 PM",
+      },
+      {
+        title: "Prize Distribution Of IOTA",
+        time: "8:25 PM - 8:35 PM",
+      },
+      {
+        title: "Prize Distribution of Dance Battle",
+        time: "8:35 PM - 8:40 PM",
+      },
+      {
+        title: "Vote Of thanks From Joint Secretary Non Technical",
+        time: "8:40 PM - 8:45 PM",
+      },
+      {
+        title: "Announcement of Abhisarga 2026 by Chair Abhisarga 2025",
+        time: "8:45 PM - 8:46 PM",
+      },
+      {
+        title: "ECHO BEATS (DJ NIGHT)",
+        time: "8:46 PM - 10:00 PM",
+      },
     ],
   ];
 
