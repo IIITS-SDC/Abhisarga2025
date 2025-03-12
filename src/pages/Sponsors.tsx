@@ -108,6 +108,15 @@ export default function Sponsors() {
         },
       ],
     },
+    {
+      category: "Gifting Partner",
+      items: [
+        {
+          name: "Wonderla",
+          logo: "/assets/SponsorsAssets/wonderla.webp",
+        },
+      ],
+    },
   ];
 
   return (
